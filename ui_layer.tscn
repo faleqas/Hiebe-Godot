@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3q7qdihfx0om"]
+
+[ext_resource type="FontFile" uid="uid://cn10lfq5t68ox" path="res://Assets/Fonts/merchant-copy/Merchant Copy.ttf" id="1_35fp8"]
+[ext_resource type="PackedScene" uid="uid://bvhtqoioglh" path="res://healthbar.tscn" id="1_o6jfd"]
+
+[sub_resource type="Theme" id="Theme_rtn1t"]
+default_font = ExtResource("1_35fp8")
+default_font_size = 0
+
+[node name="UILayer" type="CanvasLayer"]
+
+[node name="objective" type="RichTextLabel" parent="."]
+modulate = Color(0, 0.847059, 0.85098, 1)
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 757.0
+offset_bottom = 167.0
+theme = SubResource("Theme_rtn1t")
+theme_override_font_sizes/normal_font_size = 56
+text = "Current Objective: Find the cave"
+scroll_active = false
+scroll_following = true
+
+[node name="Healthbar" parent="." instance=ExtResource("1_o6jfd")]
+position = Vector2(96, 135)
+scale = Vector2(5, 5)

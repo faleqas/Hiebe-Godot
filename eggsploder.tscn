@@ -1,0 +1,121 @@
+[gd_scene load_steps=21 format=3 uid="uid://dlklf0tnin8a8"]
+
+[ext_resource type="Script" path="res://Scripts/Eggsploder.cs" id="1_idwia"]
+[ext_resource type="Texture2D" uid="uid://dtd5qiwjy5vcu" path="res://Assets/Sprites/bomb/explode1.png" id="2_flsta"]
+[ext_resource type="Texture2D" uid="uid://diha0flrp76vo" path="res://Assets/Sprites/bomb/idle.png" id="2_wtcyx"]
+[ext_resource type="Texture2D" uid="uid://rkp644rbg0u6" path="res://Assets/Sprites/bomb/explode2.png" id="3_athcm"]
+[ext_resource type="Texture2D" uid="uid://dgipkpfkdrolp" path="res://Assets/Sprites/bomb/explode3.png" id="4_rkts3"]
+[ext_resource type="Texture2D" uid="uid://dtlj6cx2qfoby" path="res://Assets/Sprites/bomb/explode4.png" id="5_6oy5j"]
+[ext_resource type="Texture2D" uid="uid://bknb6ckpalmtu" path="res://Assets/Sprites/bomb/explode5.png" id="6_pdwdx"]
+[ext_resource type="Texture2D" uid="uid://dv84oygygdjtf" path="res://Assets/Sprites/bomb/explode6.png" id="7_t8stj"]
+[ext_resource type="Texture2D" uid="uid://t1xd1w4uncud" path="res://Assets/Sprites/bomb/explode7.png" id="8_hlkhl"]
+[ext_resource type="Texture2D" uid="uid://bf0e5b4rorxip" path="res://Assets/Sprites/bomb/explode8.png" id="9_ej2ja"]
+[ext_resource type="Texture2D" uid="uid://dcehvy0ps3vao" path="res://Assets/Sprites/bomb/explode9.png" id="10_cvaxq"]
+[ext_resource type="Texture2D" uid="uid://b08bca4w0beyp" path="res://Assets/Sprites/bomb/explode10.png" id="11_tjsp5"]
+[ext_resource type="Texture2D" uid="uid://tbtmwma0qc22" path="res://Assets/Sprites/bomb/explode11.png" id="12_qwgmy"]
+[ext_resource type="Texture2D" uid="uid://boy8uaaswaym0" path="res://Assets/Sprites/bomb/explosion1.png" id="13_giefp"]
+[ext_resource type="Texture2D" uid="uid://dopwacp53anf6" path="res://Assets/Sprites/bomb/explosion2.png" id="14_uiqtg"]
+[ext_resource type="Texture2D" uid="uid://dbuwnq2j72ocx" path="res://Assets/Sprites/bomb/fall.png" id="15_ejkg4"]
+[ext_resource type="Texture2D" uid="uid://brbov5wv6cl1l" path="res://Assets/Sprites/bomb/land.png" id="17_5sbqg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rumh2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_flsta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_athcm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rkts3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6oy5j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pdwdx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_t8stj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hlkhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ej2ja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cvaxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tjsp5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qwgmy")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_giefp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_uiqtg")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_ejkg4")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wtcyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ejkg4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_5sbqg")
+}],
+"loop": false,
+"name": &"land",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l8vu"]
+size = Vector2(12, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k0na"]
+size = Vector2(38, 20)
+
+[node name="Eggsploder" type="CharacterBody2D"]
+position = Vector2(-24, 404)
+script = ExtResource("1_idwia")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rumh2")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1l8vu")
+
+[node name="explosion_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="explosion_area"]
+shape = SubResource("RectangleShape2D_1k0na")

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dpij6ot733o1r"]
+
+[node name="Camera2D" type="Camera2D"]
+texture_filter = 1
+position = Vector2(4, -72)
+zoom = Vector2(3, 3)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.6
+drag_right_margin = 0.6

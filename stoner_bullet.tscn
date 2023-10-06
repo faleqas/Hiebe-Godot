@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://4fd8y0fme5ec"]
+
+[ext_resource type="Script" path="res://Scripts/stoner_bullet.cs" id="1_1h1vp"]
+[ext_resource type="Texture2D" uid="uid://caykxlxdwyb2r" path="res://Assets/Sprites/enemy/enemy/shooting.png" id="1_wjwet"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mq3qp"]
+atlas = ExtResource("1_wjwet")
+region = Rect2(102, 9, 17, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7t3md"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mq3qp")
+}],
+"loop": true,
+"name": &"main",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nrc5"]
+size = Vector2(3, 14)
+
+[node name="stoner_bullet" type="CharacterBody2D"]
+script = ExtResource("1_1h1vp")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 0.25)
+scale = Vector2(1, 0.944444)
+sprite_frames = SubResource("SpriteFrames_7t3md")
+animation = &"main"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.18557e-08, -1.5)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_6nrc5")

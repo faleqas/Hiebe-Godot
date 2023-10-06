@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnm28fs20xp3k"]
+
+[ext_resource type="Texture2D" uid="uid://qsy6ln7lc1sg" path="res://Assets/Sprites/cave/cave.png" id="1_dk2o0"]
+[ext_resource type="Script" path="res://Scripts/diamond.cs" id="2_ejk00"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvmpy"]
+atlas = ExtResource("1_dk2o0")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d2fhy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvmpy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1nm1h"]
+radius = 8.0
+
+[node name="Diamond" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_d2fhy")
+script = ExtResource("2_ejk00")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_1nm1h")

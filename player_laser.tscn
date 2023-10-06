@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://brp62pwlc2t8f"]
+
+[ext_resource type="Texture2D" uid="uid://vfwhlglbux16" path="res://Assets/Sprites/player/shooting/laser_bullet.png" id="1_2oeu0"]
+[ext_resource type="Script" path="res://Scripts/Player/player_laser.cs" id="1_ui3vf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tld23"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2oeu0")
+}],
+"loop": true,
+"name": &"main",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kfsk"]
+size = Vector2(4, 2)
+
+[node name="PlayerLaser" type="CharacterBody2D"]
+script = ExtResource("1_ui3vf")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tld23")
+animation = &"main"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_2kfsk")
