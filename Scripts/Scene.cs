@@ -34,12 +34,15 @@ public partial class Scene : Node2D
 
 	private PackedScene next_scene = null;
 
+	player_data PlayerData = null;
+
 	public Scenes get_scene_id()
 	{
 		return scene_id;
 	}
 	public override void _Ready()
 	{
+		PlayerData = (player_data)GetNode("/root/PlayerData");
 		if (SceneFilePath == "res://Cave.tscn")
 		{
 			scene_id = Scenes.CAVE_FIRST;
@@ -66,6 +69,7 @@ public partial class Scene : Node2D
 			
 			if (switch_countdown <= 0)
 			{
+				PlayerData.position = Vector2.Zero;
 				GetTree().ChangeSceneToPacked(next_scene);	
 			}
 			switch_countdown--;

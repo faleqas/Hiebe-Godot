@@ -28,7 +28,7 @@ public partial class player : CharacterBody2D
 	private int tics_since_fall = 0; //used for coyote jumping
 	private int last_jump_press_tic = -1;
 
-	private int health = 100;
+	private int health = 0;
 
 		private const int LANDED_COUNTDOWN_TICS = 10;
 
@@ -51,6 +51,8 @@ public partial class player : CharacterBody2D
 	private int damage_countdown = 0; //if countdown reaches 0 the player's modulate returns to white.
 	//while damage_countdown is not 0 the player cannot be damaged
 
+	player_data PlayerData = null;
+
 	public override void _Ready()
 	{
 		base._Ready();
@@ -59,6 +61,16 @@ public partial class player : CharacterBody2D
 		((Scene)(GetParent())).Player = this;
 		particles = (CpuParticles2D)GetNode("run_particles");
 		spawn_pos = Position;
+
+
+		PlayerData = (player_data)GetNode("/root/PlayerData");
+		if (PlayerData.position != Vector2.Zero)
+		{
+			spawn_pos = PlayerData.position;
+			Position = PlayerData.position;
+		}
+		GD.Print(PlayerData.health);
+		health = PlayerData.health;
 	}
 
 	public Scene.ObjectTypes ObjectType()
@@ -301,7 +313,9 @@ public partial class player : CharacterBody2D
 				PackedScene scene = GD.Load<PackedScene>("res://player.tscn");
 
 				player successor = (player)scene.Instantiate();
-				successor.Position = spawn_pos;
+
+				PlayerData.position = spawn_pos;
+				PlayerData.health = health;
 
 				GetParent().AddChild(successor);
 				QueueFree();
