@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cf4vh3an011ba"]
+[gd_scene load_steps=25 format=3 uid="uid://cf4vh3an011ba"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.cs" id="1_8hpae"]
 [ext_resource type="Texture2D" uid="uid://7tkpyjpputkj" path="res://Assets/Sprites/player/idle/0.png" id="1_rakp4"]
@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://dq3pjlhbs8t1y" path="res://Assets/Sprites/player/running/5.png" id="9_5s68v"]
 [ext_resource type="Texture2D" uid="uid://dno5cvr2uxp2i" path="res://Assets/Sprites/player/shooting/3.png" id="9_nm2ax"]
 [ext_resource type="Texture2D" uid="uid://cnqdoycga1sxi" path="res://Assets/Sprites/player/idle/2_edit.png" id="10_2bb0e"]
+[ext_resource type="PackedScene" uid="uid://dnm28fs20xp3k" path="res://diamond.tscn" id="21_wwcqw"]
+[ext_resource type="Script" path="res://Scripts/player_diamond.cs" id="22_ks6yu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3u2ii"]
 size = Vector2(14, 22)
@@ -161,3 +163,8 @@ lifetime_randomness = 1.0
 spread = 92.5
 gravity = Vector2(-3, -1)
 scale_amount_min = 0.7
+
+[node name="Diamond" parent="." instance=ExtResource("21_wwcqw")]
+position = Vector2(-23, -13)
+scale = Vector2(0.65, 0.65)
+script = ExtResource("22_ks6yu")
