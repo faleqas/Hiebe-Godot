@@ -23,15 +23,16 @@ public partial class diamond : AnimatedSprite2D
 		scene = (Scene)GetParent();
 		area = (Area2D)GetNode("Area2D");
 		velocity.Y = bob_speed;
-		if (scene.PlayerData.has_gem)
-		{
-			QueueFree();
-		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if (scene.PlayerData.has_gem)
+		{
+			GD.Print("freed\n");
+			QueueFree();
+		}
 		if (scene.Player != null)
 		{
 			Godot.Collections.Array<Node2D> bodies = area.GetOverlappingBodies();
