@@ -23,6 +23,10 @@ public partial class diamond : AnimatedSprite2D
 		scene = (Scene)GetParent();
 		area = (Area2D)GetNode("Area2D");
 		velocity.Y = bob_speed;
+		if (scene.PlayerData.has_gem)
+		{
+			QueueFree();
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,6 +38,7 @@ public partial class diamond : AnimatedSprite2D
 
 			if (bodies.Contains(scene.Player))
 			{
+				scene.PlayerData.has_gem = true;
 				scene.SetObjective("Current Objective: Exit the cave");
 				QueueFree();
 			}

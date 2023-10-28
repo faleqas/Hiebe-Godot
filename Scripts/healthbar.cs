@@ -32,7 +32,7 @@ public partial class healthbar : Node2D
 			Health = 0;
 		}
 
-				bar.Scale = new Vector2(1.0f, Health / 100);
+		bar.Scale = new Vector2(1.0f, Health / 100);
 
 		bar.Position = original_bar_pos + new Vector2(0, bar.Texture.GetHeight() * (1 - bar.Scale.Y));
 	}

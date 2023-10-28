@@ -34,7 +34,7 @@ public partial class Scene : Node2D
 
 	private PackedScene next_scene = null;
 
-	player_data PlayerData = null;
+	public player_data PlayerData = null;
 
 	public Scenes get_scene_id()
 	{
@@ -46,10 +46,26 @@ public partial class Scene : Node2D
 		if (SceneFilePath == "res://Cave.tscn")
 		{
 			scene_id = Scenes.CAVE_FIRST;
+			if (PlayerData.has_gem)
+			{
+				SetObjective("Current Objective: Exit the cave");
+			}
+			else
+			{
+				SetObjective("Current Objective: Take the gem");
+			}
 		}
 		else if (SceneFilePath == "res://Scene.tscn")
 		{
 			scene_id = Scenes.INTRO_FOREST;
+			if (PlayerData.has_gem)
+			{
+				SetObjective("Current Objective: Ne3mel eh ba3d ma gab el gem ya abdo ?");
+			}
+			else
+			{
+				SetObjective("Current Objective: Find and enter the cave");
+			}
 		}
 	}
 
