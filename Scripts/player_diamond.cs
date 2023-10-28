@@ -11,6 +11,8 @@ public partial class player_diamond : AnimatedSprite2D
 
 	private int tics_since_dir_change = 0;
 
+	private const int distancex_from_player = 20;
+
 	Scene scene;
 
 	// Called when the node enters the scene tree for the first time.
@@ -24,7 +26,7 @@ public partial class player_diamond : AnimatedSprite2D
 	public override void _Process(double delta)
 	{
 		Visible = scene.PlayerData.has_gem;
-		if (tics_since_dir_change >= 30)
+		if (tics_since_dir_change >= 10)
 		{
 			tics_since_dir_change = 0;
 			bob_dir *= -1;
@@ -34,7 +36,7 @@ public partial class player_diamond : AnimatedSprite2D
 		{
 			if (velocity.Y < bob_speed)
 			{
-				velocity.Y += 0.001f;
+				velocity.Y += 0.005f;
 			}
 			if (velocity.Y >= bob_speed)
 			{
@@ -46,7 +48,7 @@ public partial class player_diamond : AnimatedSprite2D
 		{
 			if (velocity.Y > -bob_speed)
 			{
-				velocity.Y -= 0.001f;
+				velocity.Y -= 0.005f;
 			}
 			else if (velocity.Y <= -bob_speed)
 			{
@@ -55,6 +57,17 @@ public partial class player_diamond : AnimatedSprite2D
 			}
 		}
 
-		Position += velocity;
+		if (scene.Player.direction.X == -1)
+		{
+			Position = Position.Lerp(new Vector2(distancex_from_player, Position.Y), 0.06f);
+		}
+		else
+		{
+			Position = Position.Lerp(new Vector2(-distancex_from_player, Position.Y), 0.06f);
+		}
+
+		{
+			Position += velocity;
+		}
 	}
 }
