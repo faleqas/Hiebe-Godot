@@ -28,12 +28,18 @@ public partial class diamond : AnimatedSprite2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if (scene.PlayerData.has_gem)
+		{
+			GD.Print("freed\n");
+			QueueFree();
+		}
 		if (scene.Player != null)
 		{
 			Godot.Collections.Array<Node2D> bodies = area.GetOverlappingBodies();
 
 			if (bodies.Contains(scene.Player))
 			{
+				scene.PlayerData.has_gem = true;
 				scene.SetObjective("Current Objective: Exit the cave");
 				QueueFree();
 			}

@@ -315,7 +315,7 @@ public partial class player : CharacterBody2D
 				player successor = (player)scene.Instantiate();
 
 				PlayerData.position = spawn_pos;
-				PlayerData.health = health;
+				PlayerData.health = 100;
 
 				GetParent().AddChild(successor);
 				QueueFree();
