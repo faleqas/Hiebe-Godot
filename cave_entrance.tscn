@@ -1,15 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bclnb6ye8hs4b"]
+[gd_scene load_steps=4 format=3 uid="uid://bclnb6ye8hs4b"]
 
 [ext_resource type="Texture2D" uid="uid://cv55rt1in47p" path="res://Assets/Sprites/cave/cave gate.png" id="1_luysr"]
+[ext_resource type="Script" path="res://Scripts/cave_entrance.cs" id="1_yow0d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcja6"]
 size = Vector2(34, 56)
 
 [node name="CaveEntrance" type="Node2D"]
-<<<<<<< Updated upstream
-=======
-position = Vector2(-264, 2)
->>>>>>> Stashed changes
+script = ExtResource("1_yow0d")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

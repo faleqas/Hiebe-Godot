@@ -10,19 +10,11 @@ default_font_size = 0
 [node name="UILayer" type="CanvasLayer"]
 
 [node name="objective" type="RichTextLabel" parent="."]
-<<<<<<< HEAD
-modulate = Color(1, 0.0352941, 0, 1)
-offset_left = -1.0
-offset_top = 5.0
-offset_right = 755.0
-offset_bottom = 174.0
-=======
 modulate = Color(0, 0.847059, 0.85098, 1)
 offset_left = 1.0
 offset_top = -2.0
 offset_right = 1147.0
 offset_bottom = 167.0
->>>>>>> c1a25a8cf8a8dc9904b6a88cf669feb8eddd2ff8
 theme = SubResource("Theme_rtn1t")
 theme_override_font_sizes/normal_font_size = 56
 text = "Current Objective: Find the cave"
@@ -30,5 +22,5 @@ scroll_active = false
 scroll_following = true
 
 [node name="Healthbar" parent="." instance=ExtResource("1_o6jfd")]
-position = Vector2(97, 138)
+position = Vector2(96, 135)
 scale = Vector2(5, 5)
