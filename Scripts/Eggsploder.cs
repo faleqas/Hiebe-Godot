@@ -57,6 +57,10 @@ public partial class Eggsploder : CharacterBody2D
 					player obj = (player)col.GetCollider();
 					obj.OnDeath();
 				}
+				if (col.GetCollider() is not TileMap)
+				{
+					state |= State.EXPLOSION;
+				}
 			}
 			// Add the gravity.
 			if (!IsOnFloor())
@@ -107,6 +111,8 @@ public partial class Eggsploder : CharacterBody2D
 		}
 		else if (StateHas(State.EXPLOSION))
 		{
+			CollisionShape2D collision_shape = (CollisionShape2D)GetNode("CollisionShape2D");
+			collision_shape.Disabled = true;
 			if (!anim.IsPlaying())
 			{
 				OnDeath();

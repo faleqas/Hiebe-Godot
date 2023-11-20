@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://benvtaie5lq4f"]
+[gd_scene load_steps=28 format=3 uid="uid://benvtaie5lq4f"]
 
 [ext_resource type="Script" path="res://Scripts/Scene.cs" id="1_epu5c"]
 [ext_resource type="PackedScene" uid="uid://cf4vh3an011ba" path="res://player.tscn" id="2_iomd7"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://bclnb6ye8hs4b" path="res://cave_entrance.tscn" id="16_5ipqc"]
 [ext_resource type="PackedScene" uid="uid://b6u15vpce1n8m" path="res://map_border.tscn" id="16_n4vmv"]
 [ext_resource type="Script" path="res://Scripts/map_border.cs" id="17_yxjhd"]
+[ext_resource type="PackedScene" uid="uid://b4410nxtkdcc0" path="res://stoner.tscn" id="18_ifo6f"]
+[ext_resource type="PackedScene" uid="uid://dlklf0tnin8a8" path="res://eggsploder.tscn" id="19_fk0n2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_812t3"]
 resource_local_to_scene = true
@@ -248,6 +250,9 @@ position = Vector2(267, 627)
 [node name="Player" parent="." instance=ExtResource("2_iomd7")]
 position = Vector2(255, 608)
 
+[node name="Stoner" parent="." instance=ExtResource("18_ifo6f")]
+position = Vector2(125, 638)
+
 [node name="Grass3" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_812t3")
 position = Vector2(-68, 643)
@@ -284,6 +289,7 @@ position = Vector2(164, 587)
 [node name="UILayer" parent="." instance=ExtResource("15_tcmki")]
 
 [node name="scene_modulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="borders" type="Node2D" parent="."]
@@ -313,6 +319,9 @@ offset_top = -266.0
 offset_right = 386.0
 offset_bottom = 149.0
 color = Color(1, 0, 0, 0.67451)
+
+[node name="Eggsploder" parent="." instance=ExtResource("19_fk0n2")]
+position = Vector2(213, 488)
 
 [connection signal="body_entered" from="borders/map_border2/Area2D" to="borders/map_border2/Area2D" method="_on_body_entered" flags=18]
 [connection signal="body_exited" from="borders/map_border2/Area2D" to="borders/map_border2/Area2D" method="_on_body_exited" flags=18]

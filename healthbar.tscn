@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvhtqoioglh"]
+[gd_scene load_steps=5 format=3 uid="uid://bvhtqoioglh"]
 
 [ext_resource type="Texture2D" uid="uid://dned260rstutp" path="res://Assets/Sprites/ui/health/bar.png" id="1_67gtp"]
+[ext_resource type="Script" path="res://Scripts/healthbar.cs" id="1_at21g"]
 [ext_resource type="Texture2D" uid="uid://bgdbdqnhayl4c" path="res://Assets/Sprites/ui/health/bar_border.png" id="2_4vft5"]
 [ext_resource type="Texture2D" uid="uid://h61lo55h7jme" path="res://Assets/Sprites/ui/health/heart.png" id="3_ipxe1"]
 
 [node name="Healthbar" type="Node2D"]
+script = ExtResource("1_at21g")
 metadata/_edit_group_ = true
 
 [node name="bar" type="Sprite2D" parent="."]

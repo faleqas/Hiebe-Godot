@@ -48,6 +48,7 @@ public partial class healthbar : Node2D
 		if (Player != null)
 		{
 			Health = Player.GetHealth();
+			GD.Print(Health);
 			if (Health < 0)
 			{
 				Health = 0;
@@ -56,6 +57,7 @@ public partial class healthbar : Node2D
 		else
 		{
 			Health = 0;
+			GD.Print("player is null");
 		}
 	}
 }

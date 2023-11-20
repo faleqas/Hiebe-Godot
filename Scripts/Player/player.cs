@@ -69,7 +69,7 @@ public partial class player : CharacterBody2D
 			spawn_pos = PlayerData.position;
 			Position = PlayerData.position;
 		}
-		GD.Print(PlayerData.health);
+		//GD.Print(PlayerData.health);
 		health = PlayerData.health;
 	}
 
